@@ -48,17 +48,17 @@ Métodos:
 - printDetails(): Esta função imprimirá detalhes do celular.
 
 ```kotlin runnable
-class Mobile {
+class Celular {
     var marca: String = ""   // marca de tipo String
     var modelo: String = ""  // modelo de tipo String
-    var preco: Float = 0f    // preço de tipo float
-    var desconto: Float = 0f // desconto de tipo float
+    var preco: Double = 0.0    // preço de tipo float
+    var desconto: Double = 0.0 // desconto de tipo float
 
-    fun getActualPrice():Float{
+    fun precoComDesconto():Float{
         return preco - desconto
     }
 
-    fun printDetails(){
+    fun imprimeDetalhes(){
         println("Detalhes do celular:")
         println("Marca: $marca")
         println("Modelo: $modelo")
@@ -82,30 +82,30 @@ Pontos importantes sobre as classes Kotlin são:
 Objeto é a entidade do mundo real. Ele tem todas as propriedades e métodos declarados em uma classe. A sintaxe para declarar um objeto de uma classe é:
 
 ```kotlin
-var varName = ClassName()
+var nomedoNovoObjeto = NomeDaClasse()
 ```
 
 Podemos acessar as propriedades e métodos de uma classe usando o operador `.` (ponto). Após o nome do objeto, adicione o ponto `.` e o nome da propriedade/método:
 
 ```kotlin 
-var varName = ClassName()
-varName.property = 0
-varName.functionName()
+var nomeDoNovoObjeto = NomeDaClasse()
+nomeDoNovoObjeto.propriedade = 0
+nomeDoNovoObjeto.nomeDoMetodo()
 ```
 
 Vamos criar um objeto da classe Mobile e chamar seus métodos abaixo:
 
 ```kotlin runnable
 fun main() {
-    val mobile = Mobile()
-    mobile.brand = "iPhone"
-    mobile.model = "11 pro"
-    mobile.mrp = 100000f
-    mobile.discount = 1000f
+    val novoCelular = Celular()
+    novoCelular.marca = "iPhone"
+    novoCelular.modelo = "11 pro"
+    novoCelular.preco = 10000.00
+    novoCelular.desconto = 900.00
 
-    println("O preço com desconto é: ${mobile.getActualPrice()}")
+    println("O preço com desconto é: ${novoCelular.precoComDesconto()}")
 
-    mobile.printDetails()
+    novoCelular.imprimeDetalhes()
 }
 ```
 
@@ -152,14 +152,14 @@ Isso significa que, quando definimos uma classe normal, o construtor primário �
 Vamos criar um construtor primário para a classe `Mobile` que criamos nesse capítulo:
 
 ```kotlin runnable
-class Mobile (var marca: String, var modelo: String, var preco: Float, var desconto: Float) {
+class Celular (var marca: String, var modelo: String, var preco: Double, var desconto: Double) {
 
     // class methods
-    fun getActualPrice():Float{
+    fun precoComDesconto():Double{
         return mrp - discount
     }
 
-    fun printDetails(){
+    fun imprimeDetalhes(){
         println("Detalhes do celular:")
         println("Marca: $marca")
         println("Modelo: $modelo")
@@ -177,9 +177,9 @@ Agora, vamos criar um objeto desta classe:
 
 ```kotlin runnable
 fun main() {
-    val mobile: Mobile = Mobile("iPhone", "11 pro", 100000f, 1000f)
-    println("O preço com desconto é: ${mobile.getActualPrice()}")
-    mobile.printDetails()
+    val novoCelular: Celular = Celular("iPhone", "11 pro", 100000f, 1000f)
+    println("O preço com desconto é: ${novoCelular.precoComDesconto()}")
+    novoCelular.imprimeDetalhes()
 }
 ```
 
@@ -187,8 +187,8 @@ Agora as variáveis ​​são inicializadas pelo construtor primário.
 
 Mas torna-se necessário fornecer todos os valores para propriedades de classe. Para isso, também podemos fornecer valores padrão para o construtor primário:
 
-```kotlin runnable
-class Mobile (var marca: String = "", var modelo: String = "", var preco: Float = 0f, var desconto: Float = 0f)
+```kotlin
+class Celular (var marca: String = "", var modelo: String = "", var preco: Double = 0.0, var desconto: Double = 0.0)
 ```
 
 ### Construtor primário com bloco `init`
@@ -199,7 +199,7 @@ Se quisermos alterar os valores antes de atribuí-los ou adicionar alguma lógic
 Aqui está um exemplo de código,
 
 ```kotlin runnable
-class Mobile constructor(marca: String, modelo: String, preco: Float, desconto: Float) {
+class Celular constructor(marca: String, modelo: String, preco: Float, desconto: Float) {
     var marca: String
     var modelo: String
     var preco: Float
@@ -214,11 +214,11 @@ class Mobile constructor(marca: String, modelo: String, preco: Float, desconto: 
         this.desconto = desconto
     }
 
-    fun getActualPrice():Float{
-        return preco - desconro
+    fun precoComDesconto():Double{
+        return preco - desconto
     }
 
-    fun printDetails(){
+    fun imprimeDetalhes(){
         println("Detalhes do celular:")
         println("Marca: $marca")
         println("Modelo: $modelo")
@@ -233,9 +233,9 @@ Agora podemos criar o objeto e imprimir os detalhes:
 
 ```kotlin runnable
 fun main() {
-    val mobile: Mobile = Mobile("iPhone", "11 pro", 100000f, 1000f)
-    println("O preço com desconto é: ${mobile.getActualPrice()}")
-    mobile.printDetails()
+    val celular1: Celular = Celular("iPhone", "11 pro", 100000f, 1000f)
+    println("O preço com desconto é: ${celular1.precoComDesconto()}")
+    mobile.imprimeDetalhes()
 }
 ```
 
@@ -250,10 +250,10 @@ Pontos importantes sobre o bloco init:
 Um construtor secundário é usado para inicializar um grupo de valores. Os construtores secundários são criados usando a palavra-chave `constructor`. 
 Uma classe pode ter um ou mais construtores secundários.
 
-Vamos criar dois construtores na classe `Mobile`:
+Vamos criar dois construtores na classe `Celular`:
 
 ```kotlin runnable
-class Mobile {
+class Celular {
     var marca: String = ""
     var modelo: String = ""
     var preco: Float = 0f
@@ -271,11 +271,11 @@ class Mobile {
         this.desconto = _desconto
     }
 
-    fun getActualPrice():Float{
+    fun precoComDesconto():Float{
         return preco - desconto
     }
 
-    fun printDetails(){
+    fun imprimeDetalhes(){
         println("Detalhes do celular:")
         println("Marca: $marca")
         println("Modelo: $modelo")
@@ -290,9 +290,9 @@ Agora podemos criar um objeto passando valores de acordo com os construtores:
 
 ```kotlin runnable
 fun main() {
-    val mobile: Mobile = Mobile("iPhone", "11 pro")
-    println("O preço com desconto é: ${mobile.getActualPrice()}")
-    mobile.printDetails()
+    val celular1: Celular = Celular("iPhone", "11 pro")
+    println("O preço com desconto é: ${celular1.precoComDesconto()}")
+    celular1.imprimeDetalhes()
 }
 ```
 
@@ -309,10 +309,10 @@ constructor(_marca: String, _modelo: String): this()
 Também podemos chamar um construtor secundário de outro construtor secundário usando this():
 
 ```kotlin
-constructor(_marca: String, _modelo: String): this(10f,1f)
+constructor(_marca: String, _modelo: String): this(10.00,1.00)
 ```
 
-Esse construtor está chamando outros construtores com valores 10.0 e 1.0 para `preco` e desconto.
+Esse construtor está chamando outros construtores com valores 10.00 e 1.00 para `preco` e `desconto`.
 
 Também podemos chamar o construtor da classe pai (no caso de herança) usando super(). 
 
