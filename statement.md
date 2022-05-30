@@ -1,4 +1,4 @@
-# Classe e objeto Kotlin
+# Classes e objetos
 
 Existem vários tipos de paradigmas de programação que diferentes linguagens seguem para fornecer recursos diferentes. 
 Os principais paradigmas de programação são:
