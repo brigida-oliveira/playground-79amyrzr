@@ -118,3 +118,203 @@ Explicação:
 - Da linha 3 à linha 6, são fornecidos valores para todas as propriedades de classe.
 - Na linha 8, o preço com desconto é impresso usando a função `getActualPrice()`.
 - Na linha 10, a função printDetails() é chamada.
+
+# Construtor Primário e Secundário
+
+Um construtor é usado para inicializar as propriedades da classe quando um objeto da classe é criado. Pode ser considerada como uma função especial. 
+O construtor chama a si mesmo no momento da criação do objeto. Sempre que criamos um objeto de uma classe, o construtor é chamado automaticamente.
+
+Existem dois tipos de construtores em Kotlin:
+
+- Construtor primário
+- Construtor Secundário
+
+Pode haver apenas um construtor primário e muitos construtores secundários.
+
+### Construtor primário
+
+Uma das características mais importantes do Kotlin é sua concisão. Ela pode ser visto na declaração do construtor primário. 
+O construtor primário é uma parte do cabeçalho da classe. Todas as propriedades da classe também se tornam parte do construtor primário.
+
+O construtor primário é criado adicionando `constructor()` no final do nome da classe:
+
+```kotlin
+class ClassName constructor(){
+}
+```
+
+A palavra-chave `constructor` também pode ser removida:
+
+```kotlin
+class ClassName(){
+}
+```
+
+Isso significa que, quando definimos uma classe normal, o construtor primário é criado.
+
+Vamos criar um construtor primário para a classe `Mobile` que criamos nesse capítulo:
+
+```kotlin runnable
+class Mobile (var marca: String, var modelo: String, var preco: Float, var desconto: Float) {
+
+    // class methods
+    fun getActualPrice():Float{
+        return mrp - discount
+    }
+
+    fun printDetails(){
+        println("Detalhes do celular:")
+        println("Marca: $marca")
+        println("Modelo: $modelo")
+        println("Preco: $preco")
+        println("Desconto: $desconto")
+
+    }
+}
+```
+
+Aqui todas as propriedades de classe são definidas como os parâmetros do construtor primário.
+
+
+Agora, vamos criar um objeto desta classe:
+
+```kotlin runnable
+fun main() {
+    val mobile: Mobile = Mobile("iPhone", "11 pro", 100000f, 1000f)
+    println("O preço com desconto é: ${mobile.getActualPrice()}")
+    mobile.printDetails()
+}
+```
+
+Agora as variáveis ​​são inicializadas pelo construtor primário.
+
+Mas torna-se necessário fornecer todos os valores para propriedades de classe. Para isso, também podemos fornecer valores padrão para o construtor primário:
+
+```kotlin runnable
+class Mobile (var marca: String = "", var modelo: String = "", var preco: Float = 0f, var desconto: Float = 0f)
+```
+
+### Construtor primário com bloco `init`
+
+No construtor primário, os valores fornecidos são atribuídos diretamente às propriedades da classe. 
+Se quisermos alterar os valores antes de atribuí-los ou adicionar alguma lógica ao construtor primário, podemos usar o bloco `init`.
+
+Aqui está um exemplo de código,
+
+```kotlin runnable
+class Mobile constructor(marca: String, modelo: String, preco: Float, desconto: Float) {
+    var marca: String
+    var modelo: String
+    var preco: Float
+    var desconto: Float
+
+    // init function
+    init {
+        println("In init")
+        this.marca = marca.toUpperCase()
+        this.modelo = modelo.toUpperCase()
+        this.preco = preco
+        this.desconto = desconto
+    }
+
+    fun getActualPrice():Float{
+        return preco - desconro
+    }
+
+    fun printDetails(){
+        println("Detalhes do celular:")
+        println("Marca: $marca")
+        println("Modelo: $modelo")
+        println("Preço: $preco")
+        println("Desconto: $desconto")
+
+    }
+}
+```
+
+Agora podemos criar o objeto e imprimir os detalhes:
+
+```kotlin runnable
+fun main() {
+    val mobile: Mobile = Mobile("iPhone", "11 pro", 100000f, 1000f)
+    println("O preço com desconto é: ${mobile.getActualPrice()}")
+    mobile.printDetails()
+}
+```
+
+Pontos importantes sobre o bloco init:
+
+- O bloco init é sempre chamado após o construtor primário.
+- Uma classe pode ter vários blocos init.
+
+
+### Construtor Secundário Kotlin
+
+Um construtor secundário é usado para inicializar um grupo de valores. Os construtores secundários são criados usando a palavra-chave `constructor`. 
+Uma classe pode ter um ou mais construtores secundários.
+
+Vamos criar dois construtores na classe `Mobile`:
+
+```kotlin runnable
+class Mobile {
+    var marca: String = ""
+    var modelo: String = ""
+    var preco: Float = 0f
+    var desconto: Float = 0f
+
+    // first secondary constructor
+    constructor(_marca: String, _modelo: String){
+        this.parca = _marca
+        this.modelo = _modelo
+    }
+
+    // second secondary constructor
+    constructor(_preco: Float, _desconto: Float){
+        this.preco = _preco
+        this.desconto = _desconto
+    }
+
+    fun getActualPrice():Float{
+        return preco - desconto
+    }
+
+    fun printDetails(){
+        println("Detalhes do celular:")
+        println("Marca: $marca")
+        println("Modelo: $modelo")
+        println("Preço: $preco")
+        println("Desconto: $desconto")
+
+    }
+}
+```
+
+Agora podemos criar um objeto passando valores de acordo com os construtores:
+
+```kotlin runnable
+fun main() {
+    val mobile: Mobile = Mobile("iPhone", "11 pro")
+    println("O preço com desconto é: ${mobile.getActualPrice()}")
+    mobile.printDetails()
+}
+```
+
+Alguns pontos sobre o construtor secundário:
+
+Construtores secundários não são tão comuns. Eles geralmente são evitados, os blocos `init` podem ser usados ​​para executar qualquer tarefa específica antes da criação do objeto.
+
+Se o construtor primário já estiver presente, cada construtor secundário deve chamar o construtor primário. Ele é chamado usando `this()`:
+
+```kotlin
+constructor(_marca: String, _modelo: String): this()
+```
+
+Também podemos chamar um construtor secundário de outro construtor secundário usando this():
+
+```kotlin
+constructor(_marca: String, _modelo: String): this(10f,1f)
+```
+
+Esse construtor está chamando outros construtores com valores 10.0 e 1.0 para `preco` e desconto.
+
+Também podemos chamar o construtor da classe pai (no caso de herança) usando super(). 
