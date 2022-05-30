@@ -13,7 +13,7 @@ O que iremos estudar nesse tutorial é Programação Orientada a Objetos (POO). 
 # Classes e Objetos
 
 No mundo real, podemos encontrar diferentes objetos do mesmo tipo, mas com propriedades diferentes. Tomemos o exemplo de um celular. 
-Cada celular tem algumas propriedades como modelo, preço, cor, tamanho, RAM, memória, etc. Para poder definir diferentes configurações móveis, devemos ter algum tipo de espaço em branco para ser arquivado, como um blueprint, com o qual podemos criar vários objetos de dispositivos móveis. 
+Cada celular tem algumas propriedades como modelo, preço, cor, tamanho, RAM, etc. Para poder definir diferentes configurações móveis, devemos ter algum tipo de espaço em branco para ser arquivado, como um blueprint, com o qual podemos criar vários objetos de dispositivos móveis. 
 Podemos conseguir isso usando uma classe.
 
 A classe é usada para criar um blueprint de um objeto. Então vamos continuar com este exemplo por todo o capítulo, abaixo vamos definir uma classe chamada Mobile na qual vamos definir todas as suas propriedades e métodos, e então vamos criar objetos dessa classe, com valores diferentes para essas propriedades. 
