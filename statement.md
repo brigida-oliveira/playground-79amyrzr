@@ -25,7 +25,7 @@ Considere os objetos como telefones celulares fornecidos por diferentes empresas
 Uma classe é definida usando a palavra-chave `class`. A sintaxe para criar uma classe é:
 
 ```kotlin
-class <class-name> // cabeçalho da classe
+class nomeDaClasse // cabeçalho da classe
 {
     // corpo da classe
 }
