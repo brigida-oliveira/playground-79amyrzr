@@ -8,9 +8,7 @@ Os principais paradigmas de programação são:
 - Funcional
 - Orientado a Objeto
 
-O paradigma mais popularmente usado é a Programação Orientada a Objetos (POO). 
-Kotlin também fornece recursos POO como abstração , encapsulamento , herança , etc. na forma de classes, objetos, interfaces, etc, mas Kotlin não é uma linguagem POO pura, pois também fornece recursos de programação funcional como lambdas , função de ordem superior , etc. 
-Portanto, o Kotlin suporta programação funcional e orientada a objetos.
+O paradigma mais popularmente usado é a Programação Orientada a Objetos (POO). Kotlin também fornece recursos POO como abstração , encapsulamento , herança , etc. na forma de classes, objetos, interfaces, etc, mas Kotlin não é uma linguagem POO pura, pois também fornece recursos de programação funcional como lambdas , função de ordem superior , etc. Portanto, o Kotlin suporta programação funcional e orientada a objetos.
 
 # Classes e Objetos
 
