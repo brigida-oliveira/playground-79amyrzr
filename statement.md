@@ -136,14 +136,14 @@ O construtor primário é uma parte do cabeçalho da classe. Todas as propriedad
 O construtor primário é criado adicionando `constructor()` no final do nome da classe:
 
 ```kotlin
-class ClassName constructor(){
+class NomeDaClasse constructor(){
 }
 ```
 
 A palavra-chave `constructor` também pode ser removida:
 
 ```kotlin
-class ClassName(){
+class NomeDaClasse(){
 }
 ```
 
