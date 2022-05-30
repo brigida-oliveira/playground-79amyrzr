@@ -316,3 +316,9 @@ constructor(_marca: String, _modelo: String): this(10f,1f)
 Esse construtor está chamando outros construtores com valores 10.0 e 1.0 para `preco` e desconto.
 
 Também podemos chamar o construtor da classe pai (no caso de herança) usando super(). 
+
+```
+Fonte:
+https://www.studytonight.com/kotlin/kotlin-class-and-object
+https://www.studytonight.com/kotlin/kotlin-constructor-primary-and-secondary-constructor
+```
