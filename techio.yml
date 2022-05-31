@@ -1,4 +1,6 @@
 title: Orientação a objetos em Kotlin
 plan:
-- title: Kotlin Snippet
-  statement: statement.md
+- title: Aula 01
+  statement: aula01.md
+- title: Aula 02
+  statement: aula02.md
