@@ -14,10 +14,10 @@ class Empregado{
 Podemos criar um objeto da classe Empregado e acessar as propriedades usando o operador `.` dessa forma:
 
 ```kotlin
-val employee = Employee()
-employee.salary = 340000
-employee.name = "Ninja"
-println("The salary of ${employee.name} is ${employee.salary}")
+val empregado = Empregado()
+empregado.salario = 340000
+empregado.nome = "Ninja"
+println("O salário de ${empregado.nome} é: ${empregado.salario}")
 ```
 
 Sempre que tentamos obter ou definir o valor de uma propriedade, as propriedades não são acessadas diretamente. 
