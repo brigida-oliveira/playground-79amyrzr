@@ -193,11 +193,11 @@ Para tornar uma classe herdável, adicionamos uma palavra-chave `open` no cabeç
 Uma classe filha herda uma classe pai usando o operador `:`. A sintaxe para herdar uma classe é:
 
 ```kotlin
-open class Parent{
-    // Parent class features
+open class ClassePai{
+    // Características da ClassePai
 }
-class Child : Parent(){
-    // Child class features
+class ClasseFilha : ClassePai(){
+    // Características da ClasseFilha
 }
 ```
 Vamos criar um exemplo bem básico de herança:
