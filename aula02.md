@@ -360,14 +360,14 @@ fun main() {
 Neste exemplo, o construtor secundário de Truckclass chamou o construtor secundário de Vehicleclass usando a palavra-chave super. 
 Todos os argumentos necessários para a classe pai são fornecidos durante a chamada super.
 
-## Sobreposição de função
+## Sobreposição de métodos
 
-Na herança, podemos fornecer implementação específica das funções da classe base dentro da classe derivada. 
+Na herança, podemos fornecer implementação específica dos métodos da classe base dentro da classe derivada. 
 Isso significa que se existe uma função na classe pai, podemos fornecer uma implementação diferente da mesma função na classe filha. 
-É conhecido como substituição de função.
+É conhecido como sobreposição de métodos.
 
 
-No Kotlin, as funções também são final por padrão. Para substituir uma função, ela deve ser marcada como open (assim como a classe) na classe pai e na classe filha devemos usar a palavra-chave override em vez de open para especificar que substituímos a função.
+No Kotlin, os métodos também são `final` por padrão. Para sobrepor um método, ele deve ser marcada como `open` (assim como a classe) na classe pai e na classe filha devemos usar a palavra-chave override em vez de open para especificar que substituímos a função.
 
 O nome da função e os parâmetros devem ser os mesmos .
 
@@ -410,10 +410,10 @@ Neste exemplo, sobrescrevemos dois métodos run() e drivenBy() de Vehicleclasse 
 
 Também podemos chamar funções da classe pai dentro da classe filha usando a palavra-chave super.
 
-## Propriedades de substituição de Kotlin
+## Propriedades de sobreposição
 
-Da mesma forma, também podemos substituir as propriedades e alterar seu valor dentro da classe filha. 
-As propriedades devem ser marcadas open para substituí-las e usar a palavra-chave override na classe filha quando substituirmos a propriedade, assim como fizemos para funções de classe.
+Da mesma forma, também podemos sobrepor as propriedades e alterar seu valor dentro da classe filha. 
+As propriedades devem ser marcadas open para substituí-las e usar a palavra-chave override na classe filha quando substituirmos a propriedade, assim como fizemos para métodos de classe.
 
 ```kotlin runnable
 // parent class
