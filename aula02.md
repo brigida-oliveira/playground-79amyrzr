@@ -299,7 +299,7 @@ fun main() {
 Neste exemplo, o construtor secundário de Truckclass chamou o construtor secundário de Vehicleclass usando a palavra-chave super. 
 Todos os argumentos necessários para a classe pai são fornecidos durante a chamada super.
 
-## Sobreposição de métodos
+## Sobreposição de métodos (polimorfismo)
 
 Na herança, podemos fornecer implementação específica dos métodos da classe base dentro da classe derivada. 
 Isso significa que se existe uma função na classe pai, podemos fornecer uma implementação diferente da mesma função na classe filha. 
