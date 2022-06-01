@@ -1,4 +1,4 @@
-# Funções Getter e Setter Kotlin
+# Funções Getter e Setter
 
 Getters e setters são usados para obter valores de propriedades de classe e definir valores de propriedades de classe. 
 No capítulo anterior, vimos que as propriedades declaradas dentro de uma classe são acessadas usando o operador `.`. 
