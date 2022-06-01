@@ -13,7 +13,7 @@ class Empregado{
 
 Podemos criar um objeto da classe Empregado e acessar as propriedades usando o operador `.` dessa forma:
 
-```kotlin
+```kotlin runnable
 val empregado = Empregado()
 empregado.salario = 340000
 empregado.nome = "Ninja"
