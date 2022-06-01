@@ -36,7 +36,7 @@ Se tentarmos chamar `NomeDaClasse.propriedade = valor` a função `set()` é cha
 Se você vem de Java, deve ter declarado propriedades de classe como privadas e criado métodos getter e setter para ela. 
 Kotlin por padrão fornece esse recurso.
 
-## Getter e Setter em Kotlin
+## Getter e Setter
 
 As funções `get()` e `set()` padrão se parecem com:
 
@@ -125,7 +125,7 @@ Para campos de nível superior, os diferentes modificadores de visibilidade sign
 
 O modificador `protected` não está disponível para campos de nível superior.
 
-# Modificadores de visibilidade dentro de classes e interfaces
+## Modificadores de visibilidade dentro de classes e interfaces
 
 As funções, propriedades, objetos dentro de uma classe têm acesso a modificadores. Observe que a visibilidade de toda a classe ou interface depende de seu modificador de visibilidade que está no nível superior.
 
