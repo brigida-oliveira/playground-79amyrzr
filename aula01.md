@@ -306,6 +306,74 @@ Se o construtor primário já estiver presente, cada construtor secundário deve
 constructor(_marca: String, _modelo: String): this()
 ```
 
+**Exemplo:**
+
+```kotlin runnable
+class Celular (_modelo: String, _preco: Float){
+    var marca: String = ""
+    var modelo: String = ""
+    var preco: Float = 0f
+    var desconto: Float = 0f
+
+    init {
+        this.modelo = _modelo.toUpperCase()
+        this.preco = _preco
+    }
+
+    // first secondary constructor
+    constructor(_marca: String, _modelo: String, _preco: Float, _desconto: Float):this(_modelo, _preco){
+        this.marca = _marca.toUpperCase()
+        this.modelo = _modelo.toUpperCase()
+        this.preco = _preco
+        this.desconto = _desconto
+    }
+
+    // second secondary constructor
+    constructor(_modelo: String, _preco: Float, _desconto: Float):this(_modelo, _preco){
+        this.modelo = _modelo.toUpperCase()
+        this.preco = _preco
+        this.desconto = _desconto
+    }
+
+    fun precoComDesconto():Float{
+        return preco - (preco * desconto)/100
+    }
+
+    fun imprimeDetalhes(){
+        println("Detalhes do celular:")
+        println("Marca: $marca")
+        println("Modelo: $modelo")
+        println("Preço: R\$$preco")
+        println("Desconto: ${desconto}%")
+    }
+}
+
+fun main(args: Array<String>) {
+    val celular1: Celular = Celular("iPhone 11 pro", 6500.00f)
+    celular1.imprimeDetalhes()
+    println("O preço com desconto é: ${celular1.precoComDesconto()}")
+
+    println()
+    
+    celular1.marca = "Apple"
+    celular1.desconto = 15f
+    celular1.imprimeDetalhes()
+    println("O preço com desconto é: ${celular1.precoComDesconto()}")
+
+    println()
+
+    val celular2: Celular = Celular("Nokia", "3310", 100.00f, 25f)
+    celular2.imprimeDetalhes()
+    println("O preço com desconto é: ${celular2.precoComDesconto()}")
+
+    println()
+
+    val celular3: Celular = Celular("Redmi 9", 955.00f, 7f)
+    celular3.imprimeDetalhes()
+    println("O preço com desconto é: ${celular3.precoComDesconto()}")
+}
+```
+
 Também podemos chamar um construtor secundário de outro construtor secundário usando this():
 
 ```kotlin
